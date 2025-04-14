@@ -175,12 +175,13 @@ class PointNetEncoder(nn.Module):
 class PositionalEncoder():
     def __init__(self, level:int):
         self.n_freqs = level
-        self.freq_bands = torch.linspace(2.**0., 2.**(level - 1), self.n_freqs)
-        self.embed_fns = [lambda x : x]
-        # Alternate sin and cos
-        for freq in self.freq_bands:
-            self.embed_fns.append(lambda x, freq=freq: x*torch.sin(x * freq))       # TODO: x*torch
-            self.embed_fns.append(lambda x, freq=freq: x*torch.cos(x * freq))
+        ## remove lambda function. Convertion may have bugs.
+        # self.freq_bands = torch.linspace(2.**0., 2.**(level - 1), self.n_freqs)
+        # self.embed_fns = [lambda x : x]
+        # # Alternate sin and cos
+        # for freq in self.freq_bands:
+        #     self.embed_fns.append(lambda x, freq=freq: x*torch.sin(x * freq))       # TODO: x*torch
+        #     self.embed_fns.append(lambda x, freq=freq: x*torch.cos(x * freq))
             
     def encode(self, xyz):
         # # 对于每个坐标轴 x, y, z 进行批量处理
