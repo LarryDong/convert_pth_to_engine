@@ -9,7 +9,7 @@ using namespace std;
 
 
 const string model_file = "/home/larry/codeGit/implict_voxel/src/feat_voxel_map/checkpoint/best_voxel.pt";
-const string data_file = "/home/larry/featVoxelMap_ws/src/cpp_torch/data_new.csv";
+const string data_file = "/home/larry/featVoxelMap_ws/data/data_50.csv";
 
 
 int main() {
@@ -55,7 +55,7 @@ int main() {
 
     // Test data
     cout << "Loaded P: " << p_tensor << endl;
-    // cout << "points_tensor: " << points_tensor << endl;
+    cout << "points_tensor: " << points_tensor << endl;
 
 
     // Test output:
